@@ -166,7 +166,6 @@ def _build_output_srcjar(run, builder):
 
   if run.data.verbose > 2:
     print("Copied jar %s srcjar to %s" % (protojar.path, srcjar.path))
-    print("Outputs: %s" % (str(builder["outputs"]),))
 
 def _build_output_files(run, builder):
   """Build a list of files we expect to be generated."""
@@ -608,12 +607,18 @@ def _proto_compile_impl(ctx):
     commands = depset(builder["commands"]),
   )
 
+  print("Outputs 1: %s" % (str(builder["outputs"]),))
+
   # Run protoc
   _compile(ctx, unit)
+
+  print("Outputs 2: %s" % (str(builder["outputs"]),))
 
   for run in runs:
     if run.lang.output_to_jar:
       _build_output_srcjar(run, builder)
+
+  print("Outputs 3: %s" % (str(builder["outputs"]),))
 
   files = depset(builder["outputs"])
 
