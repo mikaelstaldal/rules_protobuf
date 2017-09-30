@@ -166,6 +166,7 @@ def _build_output_srcjar(run, builder):
 
   if run.data.verbose > 2:
     print("Copied jar %s srcjar to %s" % (protojar.path, srcjar.path))
+    print("Outputs: %s" % (str(builder["outputs"]),))
 
 def _build_output_files(run, builder):
   """Build a list of files we expect to be generated."""
