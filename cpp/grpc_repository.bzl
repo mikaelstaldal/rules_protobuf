@@ -80,6 +80,9 @@ def _grpc_repository_impl(rtx):
                                      "src/")
     _symlink_external_workspace_path(rtx,
                                      base_workspace,
+                                     "test/")
+    _symlink_external_workspace_path(rtx,
+                                     base_workspace,
                                      "include/")
     _symlink_external_workspace_path(rtx,
                                      base_workspace,
